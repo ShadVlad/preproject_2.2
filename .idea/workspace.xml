@@ -10,10 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ca223d7-6bbc-4f8b-9720-c1e8bf7e2c15" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/spring_mvc_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/spring_mvc_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/dao/UserDAOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/dao/UserDAOImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/service/UserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/service/UserServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring_mvc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/spring_mvc.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/config/SecurityConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,8 +62,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -336,6 +337,7 @@
       <workItem from="1586170416193" duration="6876000" />
       <workItem from="1586178571825" duration="264000" />
       <workItem from="1586179245856" duration="93000" />
+      <workItem from="1586241716421" duration="1726000" />
     </task>
     <servers />
   </component>
@@ -359,10 +361,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1055" y="407" width="613" height="248" key="#com.intellij.framework.addSupport.AddSupportForSingleFrameworkDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585931855558" />
-    <state x="1218" y="215" key="#com.intellij.ide.util.MemberChooser" timestamp="1586169786700">
+    <state x="1218" y="215" key="#com.intellij.ide.util.MemberChooser" timestamp="1586242202402">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="1218" y="215" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1586169786700" />
+    <state x="1218" y="215" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1586242202402" />
     <state x="1035" y="455" key="#com.intellij.javaee.module.view.common.J2EE.J2EEDeploymentDescriptorLocationPanel.changeDDPath" timestamp="1585933490083">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
