@@ -10,11 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ca223d7-6bbc-4f8b-9720-c1e8bf7e2c15" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/spring_mvc_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/spring_mvc_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring_mvc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/spring_mvc.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/model/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +52,20 @@
         <item name="db_example: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="user: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db_example@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="db_example: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="user_role: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db_example@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="db_example: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="users: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -62,8 +73,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -338,6 +349,8 @@
       <workItem from="1586178571825" duration="264000" />
       <workItem from="1586179245856" duration="93000" />
       <workItem from="1586241716421" duration="1726000" />
+      <workItem from="1586323640827" duration="5905000" />
+      <workItem from="1586405732245" duration="3556000" />
     </task>
     <servers />
   </component>
@@ -345,26 +358,26 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="844" y="189" key="#Assign_Data_Sources" timestamp="1586167402938">
+    <state x="844" y="189" key="#Assign_Data_Sources" timestamp="1586328187840">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="844" y="189" key="#Assign_Data_Sources/0.0.1920.1080@0.0.1920.1080" timestamp="1586167402938" />
+    <state x="844" y="189" key="#Assign_Data_Sources/0.0.1920.1080@0.0.1920.1080" timestamp="1586328187840" />
     <state x="1021" y="189" key="#Project_Structure" timestamp="1585934024299">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1021" y="189" key="#Project_Structure/0.0.1920.1080@0.0.1920.1080" timestamp="1585934024299" />
-    <state x="828" y="186" width="1092" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586170868817">
+    <state x="828" y="186" width="1092" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586325487310">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="828" y="186" width="1092" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1586170868817" />
+    <state x="828" y="186" width="1092" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1586325487310" />
     <state x="1055" y="407" width="613" height="248" key="#com.intellij.framework.addSupport.AddSupportForSingleFrameworkDialog" timestamp="1585931855558">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1055" y="407" width="613" height="248" key="#com.intellij.framework.addSupport.AddSupportForSingleFrameworkDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585931855558" />
-    <state x="1218" y="215" key="#com.intellij.ide.util.MemberChooser" timestamp="1586242202402">
+    <state x="1218" y="215" key="#com.intellij.ide.util.MemberChooser" timestamp="1586406100892">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="1218" y="215" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1586242202402" />
+    <state x="1218" y="215" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1586406100892" />
     <state x="1035" y="455" key="#com.intellij.javaee.module.view.common.J2EE.J2EEDeploymentDescriptorLocationPanel.changeDDPath" timestamp="1585933490083">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -457,31 +470,5 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="928" y="213" key="spring file set editor/0.0.1920.1080@0.0.1920.1080" timestamp="1585933513545" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/web/controller/UserController.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/web/controller/UserController.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/web/controller/UserController.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/web/controller/UserController.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
