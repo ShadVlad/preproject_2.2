@@ -13,6 +13,7 @@ import java.util.List;
 @Repository
 public class UserDAOImp implements UserDAO {
     private SessionFactory sessionFactory;
+
     @Autowired
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
@@ -20,16 +21,19 @@ public class UserDAOImp implements UserDAO {
 
     @Override
     public void add(User user) {
+
         sessionFactory.getCurrentSession().save(user);
     }
 
     @Override
     public void update(User user) {
+
         sessionFactory.getCurrentSession().update(user);
     }
 
     @Override
     public void delete(User user) {
+
         sessionFactory.getCurrentSession().delete(user);
     }
 

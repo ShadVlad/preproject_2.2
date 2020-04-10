@@ -4,19 +4,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 import web.dao.UserDAO;
 import web.model.User;
 
-public class userDetailServiceImp implements UserDetailsService {
+@Service
+public class UserDetailServiceImp implements UserDetailsService {
     private UserDAO userDAO;
 
     @Autowired
-    public void UserDetailServiceImp(UserDAO userDAO) {
+    public UserDetailServiceImp(UserDAO userDAO) {
         this.userDAO = userDAO;
     }
+
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        User user = userDAO.getUserByLogin(s);
+        User user = userDAO.getUserByUserName(s);
         if (user != null) {
             return user;
         } else {

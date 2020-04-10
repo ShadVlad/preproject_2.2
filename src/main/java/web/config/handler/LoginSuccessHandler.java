@@ -20,17 +20,28 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
             //httpServletResponse.sendRedirect("/hello");
         Collection<? extends GrantedAuthority> authorities
                 = authentication.getAuthorities();
+        boolean hasUser = false;
+        boolean hasAdmin = false;
         for (GrantedAuthority grantedAuthority : authorities) {
             if (grantedAuthority.getAuthority().equals("USER")) {
-                response.sendRedirect("user");
+                hasUser = true;
+                //response.sendRedirect("user");
                 //  break;
             } else if (grantedAuthority.getAuthority().equals("ADMIN")) {
-                response.sendRedirect("admin");
-            } else {
-                response.sendRedirect("login");
+                hasAdmin = true;
+                //response.sendRedirect("admin");
             }
+//            else {
+//                response.sendRedirect("login");
+//            }
         }
-
+        if (hasAdmin) {
+            response.sendRedirect("admin");
+        } else if (hasUser){
+            response.sendRedirect("user");
+        } else {
+            response.sendRedirect("login");
+        }
     }
 }
 
