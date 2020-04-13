@@ -28,6 +28,7 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="Entities" value="c19ba2b9-ef19-4425-9a55-8606863d7e80" />
+          <factory-entry name="spring_mvc" value="c19ba2b9-ef19-4425-9a55-8606863d7e80" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
@@ -80,5 +81,7 @@
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.1.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:5.1.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-dbcp:9.0.22" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-juli:9.0.22" level="project" />
   </component>
 </module>
