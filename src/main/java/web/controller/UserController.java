@@ -20,10 +20,10 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/")
-    public String homePage() {
-        return "redirect: /users";
-    }
+//    @GetMapping("/")
+//    public String homePage() {
+//        return "redirect: /users";
+//    }
 
     @GetMapping("/users")
     public String printUsers(ModelMap model) {
