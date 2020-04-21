@@ -57,7 +57,7 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    private Set<Role> getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
 

@@ -7,12 +7,14 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import web.model.Role;
 import web.model.User;
 import web.service.UserDetailsServiceImp;
 import web.service.UserService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/")
@@ -45,8 +47,11 @@ public class UserController {
     @GetMapping("/add")
     public ModelAndView addPage(ModelMap model) {
         ModelAndView modelAndView = new ModelAndView();
-        String [] checkedRoles = new String[]{"user"};
-        model.addAttribute("checkedRoles", checkedRoles);
+        User addUser = new User();
+        Set<Role> checkedRoles = addUser.getRoles();
+        //checkedRoles.add()
+        //String [] checkedRoles = new String[]{"user"};
+        model.addAttribute("adduser", addUser);
         modelAndView.setViewName("add");
         return modelAndView;
     }

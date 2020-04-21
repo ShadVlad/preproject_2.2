@@ -13,7 +13,7 @@
     <title>Add user</title>
 </head>
 <body>
-<form:form action="${action}" method="POST">
+<form:form action="${action}" method="POST" modelAttribute="adduser">
     <label for="username">User name:</label><br>
     <input type="text" name="username" id="username" value=${user.userName}><br><br>
     <label for="password">Password:</label><br>
@@ -22,7 +22,7 @@
     <table>
         <tr>
             <td>Roles:</td>
-            <td><form:checkboxes path="checkedRoles" items="${rolesList}"/>
+            <td><form:checkboxes path="roles" items="${rolesList}"/>
             </td>
         </tr>
     </table>
