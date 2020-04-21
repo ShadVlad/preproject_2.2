@@ -13,12 +13,10 @@
 </head>
 <body>
 <form action="${action}" method="POST">
-    <label for="firstName">First name:</label>
-    <input type="text" name="firstName" id="firstName" value=${user.firstName}>
-    <label for="lastName">Last name:</label>
-    <input type="text" name="lastName" id="lastName" value=${user.lastName}>
-    <label for="email">Email:</label>
-    <input type="text" name="email" id="email" value=${user.email}>
+    <label for="username">User name:</label>
+    <input type="text" name="username" id="userName" value=${user.username}>
+    <label for="password">Password:</label>
+    <input type="text" name="password" id="password" value=${user.password}>
     <input type="hidden" name="id" value="${user.id}">
     <input type="submit" value="edit">
 </form>

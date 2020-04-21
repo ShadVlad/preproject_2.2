@@ -1,13 +1,17 @@
 package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import web.model.User;
+import web.service.UserDetailsServiceImp;
 import web.service.UserService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -25,6 +29,12 @@ public class UserController {
 //        return "redirect: /users";
 //    }
 
+    @GetMapping("/admin")
+    public ModelAndView allUsers(ModelMap model) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect: /users");
+        return modelAndView;
+    }
     @GetMapping("/users")
     public String printUsers(ModelMap model) {
         List<User> users = userService.listAllUsers();
@@ -35,6 +45,8 @@ public class UserController {
     @GetMapping("/add")
     public ModelAndView addPage(ModelMap model) {
         ModelAndView modelAndView = new ModelAndView();
+        String [] checkedRoles = new String[]{"user"};
+        model.addAttribute("checkedRoles", checkedRoles);
         modelAndView.setViewName("add");
         return modelAndView;
     }
@@ -56,15 +68,22 @@ public class UserController {
         modelAndView.addObject("id", id);
         return modelAndView;
     }
-
+    @ModelAttribute("rolesList")
+    public List<String> rolesList(){
+        List<String> rolesList = new ArrayList<>();
+        rolesList.add("admin");
+        rolesList.add("user");
+        rolesList.add("anonim");
+        return rolesList;
+    }
     @PostMapping("/edit/{id}")
-    public ModelAndView editUser(@RequestParam(value="id") Long id,
-                                 @ModelAttribute("user") User user) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect: /users");
+    public String editUser(@RequestParam(value="id") Long id,
+                                 @ModelAttribute("user") User user, Model model) {
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("/admin");
         user.setId(id);
         userService.update(user);
-        return modelAndView;
+        return "/users";
     }
 
     @GetMapping("/delete/{id}")
@@ -77,4 +96,20 @@ public class UserController {
         }
         return modelAndView;
     }
+
+    @GetMapping(value = "/user")
+    public String userPage(Authentication authentication, ModelMap model){
+        User user = userService.getUserByName(authentication.getName());
+        model.addAttribute("user", user);
+        return "user";
+    }
+
+//    @GetMapping(value = "/logout")
+//    public String loginPage(Authentication authentication, ModelMap model){
+//
+//        //User user = userService.getUserByName(authentication.getName());
+//
+//        return "login";
+//    }
+
 }

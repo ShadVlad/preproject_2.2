@@ -23,11 +23,11 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
         boolean hasUser = false;
         boolean hasAdmin = false;
         for (GrantedAuthority grantedAuthority : authorities) {
-            if (grantedAuthority.getAuthority().equals("USER")) {
+            if (grantedAuthority.getAuthority().equals("user")) {
                 hasUser = true;
                 //response.sendRedirect("user");
                 //  break;
-            } else if (grantedAuthority.getAuthority().equals("ADMIN")) {
+            } else if (grantedAuthority.getAuthority().equals("admin")) {
                 hasAdmin = true;
                 //response.sendRedirect("admin");
             }

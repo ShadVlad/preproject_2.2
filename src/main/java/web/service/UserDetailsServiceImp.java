@@ -11,11 +11,11 @@ import web.model.User;
 
 @Service
 @Transactional
-public class UserDetailServiceImp implements UserDetailsService {
+public class UserDetailsServiceImp implements UserDetailsService {
     private UserDAO userDAO;
 
     @Autowired
-    public UserDetailServiceImp(UserDAO userDAO) {
+    public UserDetailsServiceImp(UserDAO userDAO) {
         this.userDAO = userDAO;
     }
 

@@ -6,21 +6,37 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Add user</title>
 </head>
 <body>
-<form action="${action}" method="POST">
-    <label for="firstName">First name:</label>
-    <input type="text" name="firstName" id="firstName" value=${user.firstName}>
-    <label for="lastName">Last name:</label>
-    <input type="text" name="lastName" id="lastName" value=${user.lastName}>
-    <label for="email">Email:</label>
-    <input type="text" name="email" id="email" value=${user.email}>
-    <input type="submit" value="add">
-</form>
+<form:form action="${action}" method="POST">
+    <label for="username">User name:</label><br>
+    <input type="text" name="username" id="username" value=${user.userName}><br><br>
+    <label for="password">Password:</label><br>
+    <input type="text" name="password" id="password" value=${user.password}><br><br>
+
+    <table>
+        <tr>
+            <td>Roles:</td>
+            <td><form:checkboxes path="checkedRoles" items="${rolesList}"/>
+            </td>
+        </tr>
+    </table>
+
+
+<%--        <input type="hidden" name="checkboxRole" value="1"/><br>
+        <label for="role1">admin</label><br>
+        <input type="checkbox" name="checkboxRole" id="role1" value="admin"><br>
+        <label for="role2">user</label><br>
+        <input type="checkbox" name="checkboxRole" id="role2" value="user"><br>--%>
+
+    <input type="submit" value="Add user">
+
+</form:form>
 
 </body>
 </html>

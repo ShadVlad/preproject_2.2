@@ -11,25 +11,13 @@ import java.util.List;
 import java.util.Set;
 
 @Entity(name = "user")
-@Table(name = "users")
+@Table(name = "users_spring")
 public class User implements UserDetails {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "name")
-    private String firstName;
-
-    @Column(name = "surname")
-    private String surName;
-
-    @Column(name = "age")
-    private int age;
-
-    @Column(name = "email")
-    private String email;
 
     @Column(name = "username")
     private String userName;
@@ -37,18 +25,10 @@ public class User implements UserDetails {
     @Column(name = "password")
     private String password;
 
-    @ElementCollection(targetClass=Role.class, fetch=FetchType.EAGER)
-    @CollectionTable(name="user_role", joinColumns=@JoinColumn(name="user_id"))
-    @Enumerated(EnumType.STRING)
-    private Set<Role> roles = new HashSet<>();
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Role> roles;
 
     public User() {
-    }
-
-    public User(String firstName, String surName, String email) {
-        this.firstName = firstName;
-        this.surName = surName;
-        this.email = email;
     }
 
     public Long getId() {
@@ -59,41 +39,13 @@ public class User implements UserDetails {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getSurName() {
-        return surName;
-    }
-
-    public void setSurName(String surName) {
-        this.surName = surName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return getRoles();
+    public String getUsername() {
+        return userName;
     }
 
-    private Set<Role> getRoles() {
-        return getRoles();
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     @Override
@@ -101,9 +53,21 @@ public class User implements UserDetails {
         return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    private Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
     @Override
-    public String getUsername() {
-        return userName;
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return getRoles();
     }
 
     @Override
@@ -118,12 +82,11 @@ public class User implements UserDetails {
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
         return true;
     }
-
 }

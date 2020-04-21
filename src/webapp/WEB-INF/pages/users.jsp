@@ -17,21 +17,24 @@
     <c:choose>
         <c:when test = "${param.locale.equals('en')}">
             <caption>ALL USERS</caption>
-            <tr><th>Name</th><th>Surname</th><th>e-mail</th><th colspan="2">Action</th></tr>
+            <tr><th>ID</th><th>Username</th><th>Password</th><th>Roles</th><th colspan="2">Action</th></tr>
         </c:when>
         <c:when test = "${param.locale.equals('ru')}">
             <caption>ВСЕ ПОЛЬЗОВАТЕЛИ</caption>
-            <tr><th>Имя</th><th>Фамилия</th><th>e-mail</th><th colspan="2">Действие</th></tr>
+            <tr><th>ID</th><th>Логин</th><th>Пароль</th><th>Роли</th><th colspan="2">Действие</th></tr>
         </c:when>
         <c:otherwise>
             <caption>All users</caption>
-            <tr><th>Name</th><th>Surname</th><th>e-mail</th><th colspan="2">Action</th></tr>
+            <tr><th>ID</th><th>Username</th><th>Password</th><th>Roles</th><th colspan="2">Action</th></tr>
         </c:otherwise>
     </c:choose>
-    <c:forEach var="user" items="${requestScope.users}">
-        <tr><td><c:out value="${user.firstName}"/></td>
-            <td><c:out value="${user.lastName}"/></td>
-            <td align="center"><c:out value="${user.email}"/>
+    <c:forEach items="${users}" var="user">
+        <tr><td><c:out value="${user.id}"/></td>
+            <td><c:out value="${user.username}"/></td>
+            <td align="center"><c:out value="${user.password}"/>
+            <td>
+                <c:forEach items="${user.authorities}" var="role">${role.authority}; </c:forEach>
+            </td>
             <td align="center">
                 <a href="/edit/${user.id}">изменить</a>
             </td>
@@ -44,15 +47,15 @@
 <hr />
 <c:choose>
     <c:when test = "${param.locale.equals('en')}">
-        <a href="/add"/>">Add user</a>
+        <a href="/add"/>Add user</a>
     </c:when>
     <c:when test = "${param.locale.equals('ru')}">
-        <a href="/add"/>"Добавить пользователя</a>
+        <a href="/add"/>Добавить пользователя</a>
     </c:when>
     <c:otherwise>
-        <a href="/add"/>"Add user</a>
+        <a href="/add"/>Add user</a>
     </c:otherwise>
 </c:choose>
-
+<a href="/logout">Log out</a>
 <hr /></body>
 </html>
