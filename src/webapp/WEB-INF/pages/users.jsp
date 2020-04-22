@@ -36,10 +36,10 @@
                 <c:forEach items="${user.authorities}" var="role">${role.authority}; </c:forEach>
             </td>
             <td align="center">
-                <a href="/edit/${user.id}">изменить</a>
+                <a href="/admin/edit/${user.id}">изменить</a>
             </td>
             <td align="center">
-                <a href="/delete/${user.id}">удалить</a>
+                <a href="/admin/delete/${user.id}">удалить</a>
             </td>
         </tr>
     </c:forEach>

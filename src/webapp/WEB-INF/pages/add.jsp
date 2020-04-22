@@ -13,30 +13,32 @@
     <title>Add user</title>
 </head>
 <body>
-<form:form action="${action}" method="POST" modelAttribute="adduser">
+<form action="${action}" method="POST">
     <label for="username">User name:</label><br>
-    <input type="text" name="username" id="username" value=${user.userName}><br><br>
+    <input type="text" name="userName" id="username" value=${user.username}><br><br>
     <label for="password">Password:</label><br>
     <input type="text" name="password" id="password" value=${user.password}><br><br>
 
-    <table>
-        <tr>
-            <td>Roles:</td>
-            <td><form:checkboxes path="roles" items="${rolesList}"/>
-            </td>
-        </tr>
-    </table>
+<%--    <table>--%>
+<%--        <tr>--%>
+<%--            <td>Roles:</td>--%>
+<%--            <td><form:checkboxes path="checkedRoles" items="${rolesList}"/>--%>
+<%--            </td>--%>
+<%--        </tr>--%>
+<%--    </table>--%>
 
-
-<%--        <input type="hidden" name="checkboxRole" value="1"/><br>
-        <label for="role1">admin</label><br>
-        <input type="checkbox" name="checkboxRole" id="role1" value="admin"><br>
-        <label for="role2">user</label><br>
-        <input type="checkbox" name="checkboxRole" id="role2" value="user"><br>--%>
+    <label >Roles:</label>
+    <input type="hidden" name="checkedRoles" value="1"/><br>
+    <input type="checkbox" name="checkedRoles" id="role1" value="admin">
+    <label style="white-space: pre-wrap" for="role1">ADMIN    </label>
+    <input type="checkbox" name="checkedRoles" id="role2" value="user">
+    <label style="white-space: pre-wrap" for="role2">USER    </label>
+    <input type="checkbox" name="checkedRoles" id="role3" value="anonym">
+    <label for="role3">ANONYM</label><br>
 
     <input type="submit" value="Add user">
 
-</form:form>
+</form>
 
 </body>
 </html>

@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import web.model.Role;
 import web.model.User;
 
 import javax.persistence.TypedQuery;
@@ -56,5 +57,12 @@ public class UserDAOImp implements UserDAO {
         Query query = session.createQuery("FROM user WHERE userName=:paramUserName");
         query.setParameter("paramUserName", userName);
         return (User) query.uniqueResult();
+    }
+
+    @Override
+    public Role getRoleByName(String role) {Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("FROM role WHERE role=:paramRole");
+        query.setParameter("paramRole", role);
+        return (Role) query.uniqueResult();
     }
 }

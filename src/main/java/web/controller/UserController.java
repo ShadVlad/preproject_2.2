@@ -2,6 +2,7 @@ package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -12,9 +13,7 @@ import web.model.User;
 import web.service.UserDetailsServiceImp;
 import web.service.UserService;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Controller
 @RequestMapping("/")
@@ -26,10 +25,6 @@ public class UserController {
         this.userService = userService;
     }
 
-//    @GetMapping("/")
-//    public String homePage() {
-//        return "redirect: /users";
-//    }
 
     @GetMapping("/admin")
     public ModelAndView allUsers(ModelMap model) {
@@ -47,51 +42,72 @@ public class UserController {
     @GetMapping("/add")
     public ModelAndView addPage(ModelMap model) {
         ModelAndView modelAndView = new ModelAndView();
-        User addUser = new User();
-        Set<Role> checkedRoles = addUser.getRoles();
-        //checkedRoles.add()
-        //String [] checkedRoles = new String[]{"user"};
-        model.addAttribute("adduser", addUser);
+        String [] checkedRoles = new String[]{"user"};
         modelAndView.setViewName("add");
         return modelAndView;
     }
 
     @PostMapping("/add")
-    public ModelAndView addUser(@ModelAttribute("user") User user) {
+    public ModelAndView addUser(@ModelAttribute("user") User user, @RequestParam("checkedRoles") String[] checkedRoles) {
         ModelAndView modelAndView = new ModelAndView();
+        User userDS = new User();
+        userDS = userService.getUserByName(user.getUsername());
+        if (userDS != null) {
+            return modelAndView;
+        }
         modelAndView.setViewName("redirect: /users");
+        List<Role> roles = new ArrayList<>();
+        for(String role : checkedRoles){
+            roles.add(userService.getRoleByName(role));
+        }
+        user.setRoles(roles);
         userService.add(user);
         return modelAndView;
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("/admin/edit/{id}")
     public ModelAndView editUserPage(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("edit");
         User user = userService.getUserById(id);
+//        List<Role> roles = user.getRoles();
+//        String[] checkedRoles = new String[roles.size() + 1];
+//        checkedRoles[0] = "1";
+//        int i = 0;
+//        for (Role role:roles){
+//            i++;
+//            checkedRoles[i] = role.getRole();
+//        }
+
         modelAndView.addObject("user", user);
         modelAndView.addObject("id", id);
+//        modelAndView.addObject(checkedRoles);
         return modelAndView;
     }
-    @ModelAttribute("rolesList")
-    public List<String> rolesList(){
-        List<String> rolesList = new ArrayList<>();
-        rolesList.add("admin");
-        rolesList.add("user");
-        rolesList.add("anonim");
-        return rolesList;
-    }
-    @PostMapping("/edit/{id}")
-    public String editUser(@RequestParam(value="id") Long id,
-                                 @ModelAttribute("user") User user, Model model) {
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("/admin");
+//    @ModelAttribute("rolesList")
+//    public List<String> rolesList(){
+//        List<String> rolesList = new ArrayList<>();
+//        rolesList.add("admin");
+//        rolesList.add("user");
+//        rolesList.add("anonim");
+//        return rolesList;
+//    }
+    @PostMapping("/admin/edit/{id}")
+    public ModelAndView editUser(@RequestParam(value="id") Long id,@RequestParam("checkedRoles") String[] checkedRoles,
+                           @ModelAttribute("user") User user, Model model) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect: /users");
         user.setId(id);
+        List<Role> roles = new ArrayList<>();
+        for(String role : checkedRoles){
+            roles.add(userService.getRoleByName(role));
+        }
+        user.setRoles(roles);
         userService.update(user);
-        return "/users";
+        return modelAndView;
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/admin/delete/{id}")
     public ModelAndView deleteUser(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect: /users");
